@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home - Friendly Sales & Services</title>
+    <style>
+        body { font-family: Arial; margin: 0; padding: 0; }
+        header { background: #0ea99a; color: white; padding: 10px; text-align: center; }
+        nav a { margin: 0 10px; color: white; text-decoration: none; }
+        .section { padding: 20px; }
+
+        /* Gallery styles */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            overflow: hidden;
+            text-align: center;
+            background: #f9f9f9;
+            transition: transform 0.2s;
+        }
+        .gallery-item:hover { transform: scale(1.03); }
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .gallery-item h4 {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Friendly Sales & Services</h1>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'services' %}">Services</a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </nav>
+</header>
+
+<div class="section">
+    <h2>Welcome to Friendly Sales & Services</h2>
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }} 👋 You are logged in.</p>
+    {% else %}
+        <p>Please login or register to access your dashboard.</p>
+    {% endif %}
+
+    <!-- ✅ Image Gallery with Online Images -->
+    <div class="gallery">
+        <div class="gallery">
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1615874959474-d609b3f67eab?auto=format&fit=crop&w=400&q=80" alt="Furniture Service">
+        <h4>Furniture Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1578894381163-e72c17fbb84e?auto=format&fit=crop&w=400&q=80" alt="Chair Service">
+        <h4>Chair Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1620712943543-78e0cf2c2551?auto=format&fit=crop&w=400&q=80" alt="Fan Service">
+        <h4>Fan Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1610627776810-6d6c8c1a9e05?auto=format&fit=crop&w=400&q=80" alt="Motor Service">
+        <h4>Motor Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1616627455342-6940c1d8f31c?auto=format&fit=crop&w=400&q=80" alt="Painting Service">
+        <h4>Painting Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1581092919595-47b207eab06f?auto=format&fit=crop&w=400&q=80" alt="Repair Service">
+        <h4>Repair Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1619537903498-ec2e10c91910?auto=format&fit=crop&w=400&q=80" alt="TV Service">
+        <h4>TV Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1596464716120-6e8f1a5e0f23?auto=format&fit=crop&w=400&q=80" alt="Washing Machine Service">
+        <h4>Washing Machine Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" alt="Electronics Service">
+        <h4>Electronics Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1598300057108-4c7b2e5e8b2e?auto=format&fit=crop&w=400&q=80" alt="Sofa Service">
+        <h4>Sofa Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1581090700227-4c4d97f3f62c?auto=format&fit=crop&w=400&q=80" alt="Office Setup">
+        <h4>Office Setup</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1617097055613-4f179f1dc93b?auto=format&fit=crop&w=400&q=80" alt="Interior Design">
+        <h4>Interior Design</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1618220022301-951cb4bbfb17?auto=format&fit=crop&w=400&q=80" alt="Kitchen Service">
+        <h4>Kitchen Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Home Service">
+        <h4>Home Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1571607388263-28e1b1ef4b1f?auto=format&fit=crop&w=400&q=80" alt="Car Service">
+        <h4>Car Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&w=400&q=80" alt="Bike Service">
+        <h4>Bike Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1561715276-a2d087060f1a?auto=format&fit=crop&w=400&q=80" alt="Shop Service">
+        <h4>Shop Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1598399632201-12aa82c07cfb?auto=format&fit=crop&w=400&q=80" alt="Delivery Service">
+        <h4>Delivery Service</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=400&q=80" alt="Customer Support">
+        <h4>Customer Support</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&w=400&q=80" alt="Sales Service">
+        <h4>Sales Service</h4>
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
